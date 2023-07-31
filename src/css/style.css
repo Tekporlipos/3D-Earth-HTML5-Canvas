@@ -1,0 +1,20 @@
+body {
+    overflow: hidden;
+    background-image: url("../images/background/bg.gif");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    backface-visibility: visible;
+    animation: animateBackground 10s infinite;
+  }
+
+  @keyframes animateBackground {
+      0% {
+      background-position: center center;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }
