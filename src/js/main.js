@@ -13,9 +13,9 @@ var camera, scene, renderer;
 			camera.position.z = 160;
 
 			// Earth terrain
-			var earth_texture  = new THREE.TextureLoader().load("3D-Earth-HTML5-Canvas/src/images/earth.jpeg");
-			var earth_bump     = new THREE.TextureLoader().load("3D-Earth-HTML5-Canvas/src/images/bump.jpeg");
-			var earth_specular = new THREE.TextureLoader().load("3D-Earth-HTML5-Canvas/src/images/spec.jpeg");
+			var earth_texture  = new THREE.TextureLoader().load("src/images/earth.jpeg");
+			var earth_bump     = new THREE.TextureLoader().load("src/images/bump.jpeg");
+			var earth_specular = new THREE.TextureLoader().load("src/images/spec.jpeg");
 			var earth_geometry = new THREE.SphereGeometry(30, 32, 32);
 			var earth_material = new THREE.MeshPhongMaterial({
 				shininess   : 40,
@@ -28,7 +28,7 @@ var camera, scene, renderer;
 			scene.add(earth);
 
 			// Earth cloud
-			var cloud_texture  = new THREE.TextureLoader().load( '3D-Earth-HTML5-Canvas/src/images/cloud.png');
+			var cloud_texture  = new THREE.TextureLoader().load( 'src/images/cloud.png');
 			var cloud_geometry = new THREE.SphereGeometry(31, 32, 32);
 			var cloud_material = new THREE.MeshBasicMaterial({
 				shininess   : 10,
