@@ -33,7 +33,7 @@ The HTML structure for the Earth Canvas is simple:
 
 Here's how the Earth Canvas animation looks like when embedded in a web page:
 
-![Earth Canvas Animation](./screenshots/Screenshot%202023-07-31%20at%2000-22-19%203D%20Earth%20HTML5%20Canvas.png)
+![Earth Canvas Animation](./src/images/screenshots/Screenshot%202023-07-31%20at%2001-22-42%203D%20Earth%20HTML5%20Canvas.png)
 
 Check out the live demo [here](https://tekporlipos.github.io/3D-Earth-HTML5-Canvas/).
 
