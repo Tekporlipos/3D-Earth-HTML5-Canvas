@@ -60,6 +60,7 @@ var camera, scene, renderer;
 			document.addEventListener('mousemove', function (e) {onMouseMove(e);}, false);
 			document.addEventListener('mousedown', function (e) {onMouseDown(e);}, false);
 			document.addEventListener('mouseup', function (e) {onMouseUp(e);}, false);
+			document.addEventListener('wheel', function (e) {onMouseWheel(e);}, false);
 		}
 
 		function animate() {
@@ -101,4 +102,19 @@ var camera, scene, renderer;
 		  earth.rotation.x += deltaY / 300;
 		  cloud.rotation.y += deltaX / 300;
 		  cloud.rotation.x += deltaY / 300;
+		}
+
+		function onMouseWheel(evt) {
+			evt.preventDefault();
+			let zoomFactor = 1.1;
+			let delta = evt.deltaY || evt.wheelDelta;
+			let zoomAmount = (delta > 0) ? 1 / zoomFactor : zoomFactor;
+		
+			// Adjust the camera's position based on zoom amount.
+			camera.position.z *= zoomAmount;
+		
+			// Limit the zoom range to prevent going too far or too close.
+			let maxZoom = 1000;
+			let minZoom = 50; 
+			camera.position.z = Math.min(Math.max(camera.position.z, minZoom), maxZoom);
 		}
