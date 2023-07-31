@@ -7,15 +7,28 @@
 <meta name="author" content="somehow mine - Tekporlipos">
 <meta name="description" content="Welcome to the 3D Earth HTML5 Canvas animation. Enjoy the rotating Earth with a cloud layer, implemented using Three.js. Interact with the scene by dragging the mouse.">
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-<script src="./three.js"></script>
-<script src="stats.js"></script>
+<script src="./js/3d-earth-maker.js"></script>
 	<style>
-	body {
-		background-image: url("hires/bg.jpg");
-		background-position: center center;
-		overflow: hidden;
-		background-size: cover;
-	}
+body {
+      overflow: hidden;
+      background-image: url("background/bg.gif");
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+	  height: 100vh;
+	  width: 100vw;
+	  backface-visibility: visible;
+      animation: animateBackground 10s infinite;
+    }
+
+    @keyframes animateBackground {
+		0% {
+        background-position: center center;
+      }
+      100% {
+        background-position: 100% 100%;
+      }
+    }
 	</style>
 </head>
 
@@ -25,7 +38,6 @@
 		var earth, cloud;
 		var pointLight, ambientLight;
 		var mouseDown = false, mouseX = 0, mouseY = 0;
-		var stats;
 
 		init();
 		animate();
@@ -35,9 +47,6 @@
 			scene = new THREE.Scene();
 			camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
 			camera.position.z = 160;
-			stats = new Stats();
-			stats.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
-			document.body.appendChild( stats.dom );
 
 			// Earth terrain
 			var earth_texture  = new THREE.TextureLoader().load("tx/earth.jpeg");
@@ -91,10 +100,8 @@
 
 		function animate() {
 			requestAnimationFrame(animate);
-			stats.begin();
 			earth.rotation.y += 0.001;
 			cloud.rotation.y += 0.001;
-			stats.end();
 			renderer.render(scene, camera);
 		}
 
@@ -132,6 +139,4 @@
 		  cloud.rotation.x += deltaY / 300;
 		}
 	</script>
-	<!-- <div style="position: fixed; top: 0px; left: 0px; cursor: pointer; opacity: 0.9; z-index: 10000;">
-		<canvas style="width: 1032px; height: 739px;" width="1290" height="923"></canvas> -->
 </body></html>
