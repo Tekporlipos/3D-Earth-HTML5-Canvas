@@ -10,7 +10,7 @@ function init() {
   // Initialization
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
-  camera.position.z = 160;
+  camera.position.set(-25, 0, 100);
 
   // Earth terrain
   let earthTexture = new THREE.TextureLoader().load("src/images/earth.jpeg");
