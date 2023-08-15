@@ -106,7 +106,7 @@ function rotateScene(deltaX, deltaY) {
 
 function onMouseWheel(evt) {
   evt.preventDefault();
-  let zoomFactor = 1.5;
+  let zoomFactor = 0.5;
   let delta = evt.deltaY || evt.wheelDelta;
   let zoomAmount = (delta > 0) ? 1 / zoomFactor : zoomFactor;
 
